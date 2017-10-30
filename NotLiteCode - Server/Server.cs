@@ -23,7 +23,7 @@ namespace NotLiteCode___Server
     private Dictionary<EndPoint, sClient> Clients = new Dictionary<EndPoint, sClient>();
     private Dictionary<string, MethodInfo> RemotingMethods = new Dictionary<string, MethodInfo>();
     private Socket sSocket = null;
-
+    private WebServer ws; 
     #region Variables
 
     /// <summary>
@@ -51,7 +51,7 @@ namespace NotLiteCode___Server
     {
       this.iPort = port;
       this.iBacklog = maxBacklog;
-
+      ws = new WebServer();
       sSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
     }
 
